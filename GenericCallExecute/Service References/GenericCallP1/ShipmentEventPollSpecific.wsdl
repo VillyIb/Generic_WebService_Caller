@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://gtx.nu/Services/Automation/V2/ExecuteP1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://gtx.nu/Services/Automation/V2/ExecuteP1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://gtx.nu/Services/Automation/V2/ExecuteP1">
+      <s:element name="Execute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="waybillnumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ping">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExecuteSoapIn">
+    <wsdl:part name="parameters" element="tns:Execute" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteHttpGetIn">
+    <wsdl:part name="waybillnumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PingHttpGetIn" />
+  <wsdl:message name="PingHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteHttpPostIn">
+    <wsdl:part name="waybillnumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PingHttpPostIn" />
+  <wsdl:message name="PingHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ShipmentEventPollSpecificSoap">
+    <wsdl:operation name="Execute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Poll specific  shipment</wsdl:documentation>
+      <wsdl:input message="tns:ExecuteSoapIn" />
+      <wsdl:output message="tns:ExecuteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verify connection to server</wsdl:documentation>
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ShipmentEventPollSpecificHttpGet">
+    <wsdl:operation name="Execute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Poll specific  shipment</wsdl:documentation>
+      <wsdl:input message="tns:ExecuteHttpGetIn" />
+      <wsdl:output message="tns:ExecuteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verify connection to server</wsdl:documentation>
+      <wsdl:input message="tns:PingHttpGetIn" />
+      <wsdl:output message="tns:PingHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ShipmentEventPollSpecificHttpPost">
+    <wsdl:operation name="Execute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Poll specific  shipment</wsdl:documentation>
+      <wsdl:input message="tns:ExecuteHttpPostIn" />
+      <wsdl:output message="tns:ExecuteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verify connection to server</wsdl:documentation>
+      <wsdl:input message="tns:PingHttpPostIn" />
+      <wsdl:output message="tns:PingHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ShipmentEventPollSpecificSoap" type="tns:ShipmentEventPollSpecificSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Execute">
+      <soap:operation soapAction="http://gtx.nu/Services/Automation/V2/ExecuteP1/Execute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://gtx.nu/Services/Automation/V2/ExecuteP1/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ShipmentEventPollSpecificSoap12" type="tns:ShipmentEventPollSpecificSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Execute">
+      <soap12:operation soapAction="http://gtx.nu/Services/Automation/V2/ExecuteP1/Execute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://gtx.nu/Services/Automation/V2/ExecuteP1/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ShipmentEventPollSpecificHttpGet" type="tns:ShipmentEventPollSpecificHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Execute">
+      <http:operation location="/Execute" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <http:operation location="/Ping" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ShipmentEventPollSpecificHttpPost" type="tns:ShipmentEventPollSpecificHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Execute">
+      <http:operation location="/Execute" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <http:operation location="/Ping" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ShipmentEventPollSpecific">
+    <wsdl:port name="ShipmentEventPollSpecificSoap" binding="tns:ShipmentEventPollSpecificSoap">
+      <soap:address location="http://77.66.63.37/Services/Automation/V2/ShipmentEventPollSpecific.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ShipmentEventPollSpecificSoap12" binding="tns:ShipmentEventPollSpecificSoap12">
+      <soap12:address location="http://77.66.63.37/Services/Automation/V2/ShipmentEventPollSpecific.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ShipmentEventPollSpecificHttpGet" binding="tns:ShipmentEventPollSpecificHttpGet">
+      <http:address location="http://77.66.63.37/Services/Automation/V2/ShipmentEventPollSpecific.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ShipmentEventPollSpecificHttpPost" binding="tns:ShipmentEventPollSpecificHttpPost">
+      <http:address location="http://77.66.63.37/Services/Automation/V2/ShipmentEventPollSpecific.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

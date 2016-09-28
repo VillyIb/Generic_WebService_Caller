@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GenericCallExecute" GeneratedClassName="Application">
+  <Profiles />
+  <Settings>
+    <Setting Name="LocalPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Services/Automation/V2/XXXXXXX.asmx</Value>
+    </Setting>
+    <Setting Name="ReceiveTimeout" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:20:00</Value>
+    </Setting>
+    <Setting Name="SendTimeout" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:20:00</Value>
+    </Setting>
+    <Setting Name="ParmeterCount" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Parameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">na</Value>
+    </Setting>
+    <Setting Name="HostList" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;http://77.66.63.159&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="LogHeadline" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">XXXX-logfile-headline-XXXX</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

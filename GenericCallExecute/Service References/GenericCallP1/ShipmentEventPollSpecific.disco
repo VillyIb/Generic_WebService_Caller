@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://77.66.63.37/Services/Automation/V2/ShipmentEventPollSpecific.asmx?wsdl" docRef="http://77.66.63.37/Services/Automation/V2/ShipmentEventPollSpecific.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://77.66.63.37/Services/Automation/V2/ShipmentEventPollSpecific.asmx" xmlns:q1="http://gtx.nu/Services/Automation/V2/ExecuteP1" binding="q1:ShipmentEventPollSpecificSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://77.66.63.37/Services/Automation/V2/ShipmentEventPollSpecific.asmx" xmlns:q2="http://gtx.nu/Services/Automation/V2/ExecuteP1" binding="q2:ShipmentEventPollSpecificSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
